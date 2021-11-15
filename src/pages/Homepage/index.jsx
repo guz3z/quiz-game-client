@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { CreateGame } from '../../components/CreateGame/CreateGame';
 import './style.css'
 
 export const Homepage = () => {
@@ -26,6 +27,9 @@ export const Homepage = () => {
                 <h1>hello homepage</h1>
                 <div className="cG-btn">
                     <button onClick={handleOpenCreateGame}>Create Game</button>
+                </div>
+                <div open={openCreateGame}>
+                    <CreateGame />
                 </div>
                 <div className="jG-btn">
                     <button onClick={handleOpenJoinGame}>Join Game</button>

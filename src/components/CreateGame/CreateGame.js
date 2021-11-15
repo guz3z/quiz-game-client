@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { storeUser } from '../../actions/index'
 import axios from 'axios';
 import './style.css'
+import { Redirect } from 'react-router-dom';
 
 export function CreateGame() {
 
@@ -10,6 +12,7 @@ export function CreateGame() {
     const [ difficulty, setDifficulty ] = useState("");
     const [ isFormSubmitted, setIsFormSubmitted ] = useState(false);
 
+    const dispatch = useDispatch();
     const socket = useSelector((state) => state.socket)
 
     //function to make gameIDMaker
@@ -57,7 +60,17 @@ export function CreateGame() {
 
         //axios getQuestions request
         const questions = await getQuestions(category, difficulty);
-    }
+        socket.emit("create game", {
+            room: gameID,
+            category,
+            difficulty
+        });
+        dispatch(storeUser(username));
+        setUsername('');
+        setCategory('');
+        setDifficulty('');
+        setIsFormSubmitted(true);
+    };
 
 
 
@@ -96,8 +109,8 @@ export function CreateGame() {
 					</select>
                 </div>
             </form>
-
+            {isFormSubmitted && <Redirect to='/lobby'/>}
         </div>
 
-    )
-}
+    );
+};

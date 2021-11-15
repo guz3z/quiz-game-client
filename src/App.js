@@ -2,6 +2,7 @@ import React from 'react';
 import { Header } from './layout/Header/index';
 import { Switch, Route } from 'react-router-dom';
 import { Homepage } from './pages/Homepage/index';
+import { Lobby } from './pages/Lobby/index';
 import './style.css';
 
 
@@ -13,10 +14,10 @@ function App() {
                 <Route exact path="/">
                     <Homepage />
                 </Route>
-                {/*<Route path="/user">
-                    <Pages.User />
+                <Route path="/lobby">
+                    <Lobby />
                 </Route>
-                <Route path="/repo">
+                {/*<Route path="/repo">
                     <Pages.RepoPage />
                 </Route>*/}
             </Switch>
