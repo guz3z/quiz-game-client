@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { storeUser } from '../../actions/index'
 import axios from 'axios';
@@ -32,20 +32,34 @@ export function CreateGame() {
         return data.results
     }
 
+    //to map category options on dropdown list
+    useEffect(() => {
+		const fetchCategories = async () => {
+			try {
+				const { data } = await axios.get('https://opentdb.com/api_category.php');
+				setCategory(data.trivia_categories);
+			} catch (err) {
+				console.error(err);
+			}
+		};
+		fetchCategories();
+	}, []);
+
     //render category options
     const renderCategoryOptions = () =>
-		category.map((category) => (
-			<option key={category.id} value={category.id}>
-				{category.name}
-			</option>
-		));
+	category.map((category) => (
+		<option key={category.id} value={category.id}>
+			{category.name}
+		</option>
+	));
+    
 
     //add username handling
     const handleUsername = e => 
     setUsername(e.target.value);
 
     //add category handling
-    const handleCategory = e =>
+    const handleCategory = (e) =>
     setCategory(e.target.value);
 
     //add dificulty handling
@@ -87,9 +101,10 @@ export function CreateGame() {
 					<select
 						id="category"
 						name="category"
+                        value={category}
 						onChange={handleCategory}
 						required
-						value={category}
+                        multiple={false}
 					>
 						{renderCategoryOptions()}
 					</select>
@@ -107,6 +122,9 @@ export function CreateGame() {
 						<option value="medium">Medium</option>
 						<option value="hard">Hard</option>
 					</select>
+                </div>
+                <div className="createGame-btnForm">
+                    <button className="createGame-btn" type="submit">Create Game</button>
                 </div>
             </form>
             {isFormSubmitted && <Redirect to='/lobby'/>}

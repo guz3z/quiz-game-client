@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { CreateGame } from '../../components/CreateGame/CreateGame';
+import { Modal } from '@material-ui/core'
 import './style.css'
 
 export const Homepage = () => {
