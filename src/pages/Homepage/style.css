@@ -1,8 +1,34 @@
 .HomepageBody {
-    width: 400px;
+    width: 40%;
     height: 400px;
     background-color: aqua;
     justify-content: center;
     text-align: center;
-
+    margin: auto;
+    margin-top: 40px;
+    border-radius: 15%;
+    box-shadow: 3px 3px 3px rgb(131, 131, 131);
 }
+
+.hp-btn {
+    margin: 40px;
+}
+
+.cG-btn {
+    padding: 10px 10px;
+    color: red;
+    border-radius: 10px;
+}
+
+.jG-btn {
+    padding: 10px 10px;
+    color: red;
+    border-radius: 10px;
+}
+
+.leaderboard-btn {
+    padding: 10px 10px;
+    color: red;
+    border-radius: 10px;
+}
+  

@@ -14,6 +14,10 @@ export const Homepage = () => {
         setOpenCreateGame(true);
     };
 
+    function handleCreateClose() {
+        setOpenCreateGame(false);
+    }
+
     function handleOpenJoinGame() {
         setOpenJoinGame(true);
     };
@@ -26,17 +30,19 @@ export const Homepage = () => {
         <>
             <main className="HomepageBody">
                 <h1>hello homepage</h1>
-                <div className="cG-btn">
-                    <button onClick={handleOpenCreateGame}>Create Game</button>
-                </div>
-                <div open={openCreateGame}>
-                    <CreateGame />
-                </div>
-                <div className="jG-btn">
-                    <button onClick={handleOpenJoinGame}>Join Game</button>
-                </div>
-                <div className="leaderboard-btn">
-                    <button onClick={handleOpenLeaderboard}>Leaderboard</button>
+                <div className="hp-btn">
+                    <div>
+                        <button className="cG-btn" onClick={handleOpenCreateGame}>Create Game</button>
+                    </div>
+                    <Modal open={openCreateGame} onClose={handleCreateClose}>
+                        <CreateGame />
+                    </Modal>
+                    <div >
+                        <button className="jG-btn" onClick={handleOpenJoinGame}>Join Game</button>
+                    </div>
+                    <div >
+                        <button className="leaderboard-btn"onClick={handleOpenLeaderboard}>Leaderboard</button>
+                    </div>
                 </div>
             </main>
         </>

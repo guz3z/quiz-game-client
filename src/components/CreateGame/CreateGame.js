@@ -94,7 +94,7 @@ export function CreateGame() {
                 <h2>Create a game</h2>
                 <div className="username-section">
                     <label htmlFor="username">Username:</label>
-                    <input onChange={handleUsername} value={username} className="userrname-input"></input>
+                    <input onChange={handleUsername} value={username} className="username-input"></input>
                 </div>
                 <div className="category-section">
                     <label htmlFor="category">Select the Category:</label>
