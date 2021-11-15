@@ -1,6 +1,7 @@
 import React from 'react';
 import { Header } from './layout/Header/index';
 import { Switch, Route } from 'react-router-dom';
+import { Homepage } from './pages/Homepage/index';
 import './style.css';
 
 
@@ -10,7 +11,7 @@ function App() {
             <Header />
             <Switch>
                 <Route exact path="/">
-                    <Pages.Homepage />
+                    <Homepage />
                 </Route>
                 {/*<Route path="/user">
                     <Pages.User />
