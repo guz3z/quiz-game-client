@@ -3,10 +3,8 @@ import './style.css'
 
 export function Header() {
     return(
-        <header>
-            <div className="Header">
-                <h1>Quiz name?</h1>
-            </div> 
+        <header className="HeaderDiv">
+                <h1>Quiz Name?</h1>
         </header>
     )
 }

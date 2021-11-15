@@ -1,25 +1,27 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
 import { Header } from './layout/Header/index';
-import '.style.css';
+import { Switch, Route } from 'react-router-dom';
+import './style.css';
 
 
 function App() {
     return (
         <>
             <Header />
-            {/*<Switch>
+            <Switch>
                 <Route exact path="/">
-                    <Pages.Welcome />
+                    <Pages.Homepage />
                 </Route>
-                <Route path="/user">
+                {/*<Route path="/user">
                     <Pages.User />
                 </Route>
                 <Route path="/repo">
                     <Pages.RepoPage />
-                </Route>
+                </Route>*/}
             </Switch>
-            <Footer />*/}
+            {/*<Footer />*/}
         </>
     )
 }
+
+export default App;
