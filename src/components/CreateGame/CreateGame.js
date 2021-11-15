@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
-
-
+import React, {useState} from 'react';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
+import './style.css'
 
 export function CreateGame() {
 
@@ -9,6 +9,8 @@ export function CreateGame() {
     const [ category, setCategory ] = useState([]);
     const [ difficulty, setDifficulty ] = useState("");
     const [ isFormSubmitted, setIsFormSubmitted ] = useState(false);
+
+    const socket = useSelector((state) => state.socket)
 
     //function to make gameIDMaker
     function gameIDMaker() {
@@ -93,7 +95,6 @@ export function CreateGame() {
 						<option value="hard">Hard</option>
 					</select>
                 </div>
-
             </form>
 
         </div>
