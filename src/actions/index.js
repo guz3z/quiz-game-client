@@ -1,13 +1,13 @@
-const storeSocket = (socket) => {
+export const storeSocket = (socket) => {
     return {
         type: 'STORE_SOCKET',
         payload: socket
     }
 };
 
-const storeUser = (user) => {
+export const storeUser = (username) => {
     return {
         type: 'STORE_USER',
-        payload: user
+        payload: username
     }
 };

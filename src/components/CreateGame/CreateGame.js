@@ -23,6 +23,7 @@ export function CreateGame() {
             const x = Math.floor(Math.random() * gameIDs.length);
             result += gameIDs[x];
         }
+        return result;
     }
 
     //function to fetch questions
@@ -77,7 +78,8 @@ export function CreateGame() {
         socket.emit("create game", {
             room: gameID,
             category,
-            difficulty
+            difficulty,
+            questions
         });
         dispatch(storeUser(username));
         setUsername('');
@@ -101,8 +103,8 @@ export function CreateGame() {
 					<select
 						id="category"
 						name="category"
+                        onChange={handleCategory}
                         value={category}
-						onChange={handleCategory}
 						required
                         multiple={false}
 					>
